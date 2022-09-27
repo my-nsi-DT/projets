@@ -5720,7 +5720,6 @@ cuivre
 cuivré
 cuivreux
 cuivrique
-cul
 culier
 culinaire
 culminant
@@ -15646,7 +15645,6 @@ pelletée
 pelletier
 pellicule
 pelote
-peloter
 peloton
 pelouse
 Peltier
@@ -15669,11 +15667,6 @@ pendre
 pendu
 pendule
 pêne
-pénétrant
-pénétration
-pénètre
-pénétré
-pénétrer
 pénible
 péniblement
 péniche
@@ -19448,10 +19441,8 @@ séide
 seigle
 seigneur
 seigneurs
-sein
 seine
 seing
-seins
 séisme
 seize
 seizième
@@ -19641,11 +19632,6 @@ sévérité
 Séville
 sévir
 sèvres
-sexualité
-sexuel
-sexuelle
-sexuelles
-sexuels
 Seydoux
 shah
 Shakespeare
