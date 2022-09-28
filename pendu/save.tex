@@ -1,0 +1,246 @@
+%%% /!\ /!\ /!\ /!\ /!\ /!\
+% Se compile avec LaTex et si tu inclus une image matricielle, avec PDFLatex.
+%%% /!\ /!\ /!\ /!\ /!\ /!\
+\documentclass[12pt]{article}
+\usepackage{bbold}
+\usepackage{dsfont}
+\usepackage[french]{babel}		% Pour avoir le document en français
+\usepackage[utf8]{inputenc}	% Encodage du document
+\usepackage{float}				% Pour gérer les positionnement d'images
+\usepackage{mathrsfs}			% Pour les lettres calligraphiques équation
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{url}				% Pour faire des hyperliens vers le web
+\usepackage{color}
+% pour les informations sur un document compilé en PDF et les liens externes / internes
+\usepackage{hyperref}			% Pour faire des hyperliens
+\usepackage{array}				% Pour faire des tableaux
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{ltablex}
+\usepackage{minted}
+
+% pour utiliser 		% floatbarrier
+%\usepackage{placeins}
+%\usepackage{floatrow}
+\usepackage{setspace}			% Espacement entre les lignes
+\usepackage{abstract}			% Modifier la mise en page de l'abstract
+\usepackage[T1]{fontenc}		% Police et mise en page (marges) du document
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry} % dimension marges
+\usepackage{pdfpages}			% pour inclures des pdf comme des images
+\usepackage{subfig}				% Pour les galerie d'images
+\usepackage{listings}			% pour inclure du code dans le doc
+\usepackage{soul}				% Pour surligner
+\usepackage{enumitem}
+ \usepackage{fancyhdr}			% En-tête et pieds de page
+\usepackage{lastpage}			% nombre total page
+\usepackage{lipsum}             % Pour les symboles (ding)
+\usepackage{fourier}            % Pour les symboles (attention, info...)
+\usepackage{pifont}
+
+%%%%%%%%% my colors
+\definecolor{LightCoral}{rgb}{240, 128, 128}
+\definecolor{Tomato}{rgb}{255, 99, 71}
+\definecolor{DarkRed}{rgb}{139, 0, 0}
+\definecolor{DarkGreen}{rgb}{0, 100, 0}
+\definecolor{LightGreen}{rgb}{144, 238, 144}
+\definecolor{DarkBlue}{rgb}{0, 0, 139}
+\definecolor{LightBlue}{rgb}{173, 216, 230}
+\definecolor{LimeGreen}{rgb}{50, 205, 50}
+
+
+%%%%%%%% En-tête & pied de page %%%%%%%%
+\setlength{\headheight}{15  pt} % taille en-tête
+\pagestyle{fancy} % pour utiliser fancy
+
+% en-tête
+\fancyhead[L]{\leftmark} % nom section
+\fancyhead[R]{NSI 2022-2023} % matière et année			TODO
+\renewcommand{\headrulewidth}{0.4pt} % ligne
+\newcommand\todo[1]{\textcolor{red}{#1}}
+% pied de page
+\fancyfoot[L]{ymougenel.com } % signature TODO
+\fancyfoot[C]{Projet Python : Le jeu du pendu} % TODO
+\fancyfoot[R]{\thepage / \pageref{LastPage}} % numéro de page
+\renewcommand{\footrulewidth}{0.4pt} % ligne
+
+\newenvironment{exercice}
+    {\begin{center}
+    \begin{tabular}{|p{0.9\textwidth}|}
+    \hline\\
+    }
+    {
+    \\\\\hline
+    \end{tabular}
+    \end{center}
+    }
+
+\begin{document}
+
+\begin{center} \Large \textbf{\fbox{\begin{minipage}{0.6\textwidth}
+  \begin{center}Projet Python : Le jeu du pendu\end{center}
+\end{minipage}}}
+  \end{center}
+
+\section{Le projet}
+Le projet consiste à créer le jeu du pendu en Python.
+
+
+\section{Présentation du Jeu}
+
+\subsection{Les règles}
+\href{https://fr.wikipedia.org/wiki/Pendu_(jeu)}{Règles Pendu (wikipedia)}
+
+\subsection{Le déroulement}
+On va coder un programme qui va joueur avec nous, il va nous faire deviner un mot au hasard.
+\begin{enumerate}
+    \item L'ordinateur choisit un mot secret aléatoire.
+    \item Le joueur propose une lettre
+    \item Si la lettre est présente dans le mot alors elle est dévoillée
+    \item Sinon le joueur perd une vie
+\end{enumerate}
+
+\newpage
+\subsection{Préparation}
+Avant toutes choses, vous pouvez créé un nouveau dossier projet-pendu dans votre espace de travail.
+Créer un nouveau fichier python nommé : "prenom-nom-pendu" (si plusieurs élèves, alors "prenom1-nom1-prénom2-nom2-pendu)
+
+\todo{TODO: copy code not working}
+\begin{minted}{python}
+mot_secret = "nsi" # Le mot secret à trouver
+mauvaises_lettres = [] # Les mauvaises lettre proposée par le joueur
+lettres_trouvees = [] # Les lettres trouvées par le joueurs
+nombre_vie =  6 # Le nombre de vies restantes
+
+def afficher_jeu():
+    """
+        Fonction affichant l'état courant du jeu
+    """
+    global lettres_trouvees
+    print("\n\n****************************")
+    print("Etat du jeu : ")
+    print(lettres_trouvees)
+    print("Mauvaise lettres : " + str(mauvaises_lettres))
+    print("Vies : " + "♥ " * nombre_vie)
+    print("****************************")
+
+######## DEBUT DU JEU ##############
+while nombre_vie > 0:
+    afficher_jeu()
+    # A FAIRE 1 : Demander la lettre à l'utisateur
+    lettre = "x"
+
+    # A FAIRE 2 : Tester si la lettre fait partie du mot
+        # Si oui :
+        #   afficher "bravo" (on changera ça par la suite)
+        # Sinon :
+        #   Afficher "La lettre n'est pas présente... vous perdez une vie"
+        #   Ajouter la lettre au tableau des mauvaises mauvaises_lettres
+        #   Enlever 1 vie au joueur uniquement dans ce cas
+    nombre_vie = nombre_vie - 1
+
+######## SORTIE DU WHILE = PLUS DE VIE ##############
+print("Fin du jeu, vous avez perdu, le mot était : " + mot_secret)
+#####################################################
+
+\end{minted}
+
+Lancez le programme, le résultat suivant doit s'afficher :
+\todo{TODO : Screenshot + détails}
+
+\section{Demander le mot}
+
+\begin{exercice}
+\ding{46} A faire 1 : Ici la lettre devinée est toujours x... pas trés marrant comme jeu... \newline
+Changer cette ligne pour demander à l'utilisateur la lettre qu'il souhaite.
+
+\end{exercice}
+
+\section{Tester le mot}
+Ici peut importe ce que test le joueur, il perdra un vie. Il faut qu'on test si la lettre proposée par le joueur appartient au mot ou non :
+
+\begin{exercice}
+\ding{46} A faire 2 : Compléter le A FAIRE 2 afin de tester si la lettre est correcte ou non. \newline
+Pour le moment si la lettre est correcte on affiche juste bravo, on améliorera cela par la suite.
+\end{exercice}
+
+\section{Lecture fichier}
+Copiez le code suivant et placez le juste avant la boucle while:
+\begin{minted}{python}
+
+def initier_mot_secret():
+    """ Initialise le mot secret en choisissant au hasard dans le dictionnaire
+    """
+    global mot_secret
+
+    # A_FAIRE 3 : choisir un mot au hasard dans le dictionnaire
+    mot_secret = "nsi"
+initier_mot_secret()
+\end{minted}
+\newline
+Comme nous l'avons vu dans \href{https://pixees.fr/informatiquelycee/n_site/nsi_prem_projet_1.html}{le projet du répertoire téléphonique}, il est possible de lire et d'écrire dans un fichier.
+
+
+\todo{lien fichier dico}
+-> Téléchargez le fichier dictionnaire.txt et placez le dans ton dossier (a côté du fichier python !)
+
+\begin{exercice}
+\ding{46} A faire 3 : Compléter le A FAIRE 3 afin de  \newline
+\begin{enumerate}
+    \item Lire tous les mots présents dans le dictionnaire
+    \item Choisir un mot au hasard comme mot secret (\href{https://letmegooglethat.com/?q=python+choisir+hasard+liste}{Comment choisir aléatoirement un élément d'une liste})
+\end{enumerate}
+
+\newline
+(\href{https://google.gprivate.com/search.php?search?q=importer+module+random}{Pensez à importer le module random})
+\end{exercice}
+
+\subsection{Initier lettres trouvées}
+Au début le joueur n'a encore rien proposé. Pour donner un indice sur la taille du mot, on va afficher au joueur autant de points que de lettres.
+Par exemple si le mot secret est nsi, le tableau de lettres trouvées sera ["*","*","*"].
+\begin{exercice}
+\ding{46} A faire 4 : Ajouter le code suivant juste avant le while, et compléter la fonction afin de générer un tableau contenant autant d'étoiles que contient le mot secret. \newline
+\begin{minted}{python}
+def initier_lettres_trouvees():
+    global mot_secret, lettres_trouvees
+    # A FAIRE 4 : Initier le tableau lettres trouvees avec des étoiles
+
+initier_lettres_trouvees()
+\end{minted}
+
+\end{exercice}
+
+
+\subsection{L'indice des lettres}
+Si le joueur devine une lettre présente dans le mot secret, alors elle est révélée. Par exemple si le mot secret est "nsi" et qu'il propose la lettre i, le tableau de lettres trouvées sera ["*","i","*"].
+
+\begin{exercice}
+
+   \ding{46} A FAIRE 5 : Si la lettre est dans le mot, plutot qu'afficher bravo, on va l'ajouter au tableau.
+
+Compléter le code suivant afin de remplacer le "bravo":
+\begin{minted}{python}
+    if lettre in mot_secret:
+        for i in range(42): # Changer la valeur 42 par la taille du mot secret
+            if "toto" == "toto": # Tester si la lettre est à la position i du mot secret
+                lettres_trouvees[-1] = lettre # Changer l'indice -1 par autre chose... mais quoi
+
+\end{minted}
+
+\end{exercice}
+
+\section{Fin de partie}
+Dans le cas ou le joueur trouve toute les lettres, le jeu continue tout de même... Un petit message de Victoire serait plus approprié.
+\begin{exercice}
+Changer la boucle while pour que le jeu continue tant que le joueur a des vies ou que le tableau des lettres trouvées contient des *.
+\end{exercice}
+
+\section{Bonus}
+\subsection{Dévoiler la première lettre du mot cachée}
+TODO
+\subsection{Droit à l'oubli}
+Si un joueur retappe une lettre déjà fausse, il reperd une vie. Vous vous dites qu'il serait plus simple de redemander au joueur une autre lettre.
+
+\subsection{Garre à la faute de frappe}
+Certains joueurs se sont plaint car en faisant une faute de frappe la partie était perdu. Pierre par exemple a tapé deux "ee" par mégarde au lieu d'un seul ; et il a perdu une vie.
+\newline Vous vous dites qu'il est peut être judicieux de redemander si ce qui est tapé est un mot et pas une lettre.
+\end{document}
