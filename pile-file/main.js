@@ -23,24 +23,31 @@ function File() {
 
 file = new File();//Object.create(File);
 
-function enfilerGarage(garage, element,index) {
+function creerElement(element,index) {
         // Prepare new item (className, id and color)
        var li_item = document.createElement("li");
        li_item.className = "list-group-item"
        li_item.id = element
        nouvelleCouleur = colors[index % colors.length]
        li_item.style.backgroundColor = nouvelleCouleur
-       // Ajoute l'item à la liste
        var text = document.createTextNode(element);
        li_item.appendChild(text);
-       garage.appendChild(li_item);
+       return li_item
+
 }
 function actualiserGarage() {
        var ul_liste = document.getElementById("garage");
        ul_liste.innerHTML = '';
 
+       var items = []
        file.contenu.forEach((item,index) => {
-            enfilerGarage(ul_liste, item,index);
+            items.push(creerElement(item,index));
+       })
+       items = items.reverse()
+
+       // Ajoute l'item à la liste
+       items.forEach((item) => {
+          garage.appendChild(item);
        })
 
 }
