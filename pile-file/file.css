@@ -10,6 +10,8 @@
     justify-content: center;
     border-top: solid;
     border-bottom: solid;
+    display: flex;
+    justify-content: end;
 }
 
 #div_garage {
@@ -35,4 +37,11 @@
   border: 2px solid #grey;
   padding: 10px
 }
-ul { height:50px;}
+ul {
+    height:50px;
+}
+
+#activite {
+    justify-content: center;
+    display: flex;
+}
