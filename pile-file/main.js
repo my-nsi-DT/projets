@@ -1,5 +1,11 @@
 colors = [("ligth_red","#ffb3b3"),("light_blue","#ccddff"),("light_green","#b3ffb3"),("light_yellow","#ffffb3"),("light_purple","#e0b3ff"),("light_brown","#ffcc99"),("light_pink","#ff99ff"),
 ("dark_red","#ff0000"),("dark_blue","#4d4dff"),("dark_green","#00cc44"),("dark_purple","#9933ff"),("dark_brown","#cc8800"),("dark_pink","#e600e6"),("dark_yellow","#e6e600")]
+function reverseString(str) {
+    return str.split("").reverse().join("");
+}
+
+var est_vide_called = false;
+
 function File() {
     this.contenu= [];
     this.enfiler= function(element) {
@@ -16,9 +22,13 @@ function File() {
             alert("Le garage est vide, defilement impossible")
         }
         else {
-            this.contenu = this.contenu.slice(0,-1)
+            this.contenu = this.contenu.slice(1)
             actualiserGarage()
         }
+    }
+    this.estVide = function() {
+        est_vide_called = true;
+        return this.contenu.length == 0;
     }
 };
 
@@ -80,12 +90,14 @@ function validate_part1() {
     alert("Le garage n'a pas encore été créé");
   }
   else {
+        console.log("Partie 1 terminée");
       next_part();
   }
 }
 function validate_part2() {
 
   if (garage.contenu.length == 1 && garage.contenu[0] == "i"){
+     console.log("Partie 2 terminée");
     next_part();
 
   }
@@ -94,8 +106,8 @@ function validate_part2() {
   }
 }
 function validate_part3() {
-    console.log(garage.contenu.join(''))
   if (garage.contenu.join('') == "isn" ){
+    console.log("Partie 3 terminée");
     next_part();
   }
   else {
@@ -103,12 +115,40 @@ function validate_part3() {
   }
 }
 function validate_part4() {
-
-  if (true ){
+  if (garage.contenu.join('') == reverseString("ns") ){
+    console.log("Partie 4 terminée");
     next_part();
   }
   else {
-      alert("TODO");
+      alert("Il faut defiler la file. Une méthode est faite pour ça. En cas d'échec faire F5");
+  }
+}
+function validate_part5() {
+  if (garage.contenu.join('') == reverseString("digital") ){
+    console.log("Partie 5 terminée");
+    next_part();
+  }
+  else {
+      alert("Courage");
+  }
+}
+function validate_part6() {
+  if (est_vide_called){
+    est_vide_called = false;
+    console.log("Partie 6 terminée");
+    next_part();
+  }
+  else {
+      alert("Il faut ajouter les éléments 'n' et 's', en cas d'échec faire F5");
+  }
+}
+function validate_part7() {
+  if (est_vide_called && garage.contenu.length == 0){
+    console.log("Partie 7 terminée");
+    next_part();
+  }
+  else {
+      alert("Il faut ajouter les éléments 'n' et 's', en cas d'échec faire F5");
   }
 }
 current_part = null
@@ -123,8 +163,6 @@ function next_part() {
     }
     //Hide previous parts
     var responseItem = document.getElementById("part"+current_part);
-   console.log(current_part)
-   console.log(responseItem)
     responseItem.style.display = "none";
     if (current_part != 0) {
 
