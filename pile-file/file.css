@@ -1,0 +1,24 @@
+/* General */
+/* TODO move to other file */
+
+#content {
+    display: flex;
+}
+/* File only */
+
+#garage {
+    justify-content: center;
+    border-top: solid;
+    border-bottom: solid;
+}
+
+#div_garage {
+
+}
+
+#sens {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
