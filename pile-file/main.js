@@ -1,5 +1,3 @@
-
-console.log("js chargé")
 colors = [("ligth_red","#ffb3b3"),("light_blue","#ccddff"),("light_green","#b3ffb3"),("light_yellow","#ffffb3"),("light_purple","#e0b3ff"),("light_brown","#ffcc99"),("light_pink","#ff99ff"),
 ("dark_red","#ff0000"),("dark_blue","#4d4dff"),("dark_green","#00cc44"),("dark_purple","#9933ff"),("dark_brown","#cc8800"),("dark_pink","#e600e6"),("dark_yellow","#e6e600")]
 const File  = {
@@ -10,6 +8,15 @@ const File  = {
     },
     creer() {
        actualiserGarage()
+    },
+    defiler() {
+        if (this.contenu.length == 0) {
+            alert("Le garage est vide, defilement impossible")
+        }
+        else {
+            this.contenu = this.contenu.slice(0,-1)
+            actualiserGarage()
+        }
     }
 };
 
@@ -22,7 +29,6 @@ function enfilerGarage(garage, element,index) {
        li_item.className = "list-group-item"
        li_item.id = element
        nouvelleCouleur = colors[index % colors.length]
-       console.log(nouvelleCouleur)
        li_item.style.backgroundColor = nouvelleCouleur
        // Ajoute l'item à la liste
        var text = document.createTextNode(element);
