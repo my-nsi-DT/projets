@@ -7,6 +7,8 @@ function File() {
         actualiserGarage()
     };
     this.creer = function() {
+
+        document.getElementById("div_garage").removeAttribute("hidden");
        actualiserGarage()
     };
     this.defiler= function() {
@@ -21,7 +23,7 @@ function File() {
 };
 
 
-file = new File();//Object.create(File);
+garage = new File();//Object.create(File);
 
 function creerElement(element,index) {
         // Prepare new item (className, id and color)
@@ -40,34 +42,75 @@ function actualiserGarage() {
        ul_liste.innerHTML = '';
 
        var items = []
-       file.contenu.forEach((item,index) => {
+       garage.contenu.forEach((item,index) => {
             items.push(creerElement(item,index));
        })
        items = items.reverse()
 
        // Ajoute l'item à la liste
        items.forEach((item) => {
-          garage.appendChild(item);
+          ul_liste.appendChild(item);
        })
 
 }
 
-// DEBUG
-file.creer()
-file.enfiler("a")
-file.enfiler("b")
+// DEBUG ////////////////////////////////////////////////////
+//file.creer()
+//file.enfiler("a")
+//file.enfiler("b")
 
+/////////////////////////////////////////////////////////////
+
+
+//function validate_part3() {
+//  const cmd = document.getElementById("cmd3");
+//  if (cmd.value.replace(" ","") == "mkdirimages") {
+//    next_part();
+//  }
+//  else {
+//      alert("Dossier images absent");
+//  }
+//
+//}
+////////////////////////////////// NAVIGATION ENTRE LES QUESTIONS ///////////////////////////////////
+function validate_part1() {
+  incomplet = document.getElementById("div_garage").hasAttribute("hidden");
+
+  if (incomplet){
+    alert("Le garage n'a pas encore été créé");
+  }
+  else {
+      next_part();
+  }
+}
+function validate_part2() {
+
+  if (garage.contenu.length == 1 && garage.contenu[0] == "i"){
+    next_part();
+
+  }
+  else {
+      alert("Il faut ajouter l'élément 'i', en cas d'échec faire F5");
+  }
+}
 function validate_part3() {
-  const cmd = document.getElementById("cmd3");
-  if (cmd.value.replace(" ","") == "mkdirimages") {
+    console.log(garage.contenu.join(''))
+  if (garage.contenu.join('') == "isn" ){
     next_part();
   }
   else {
-      alert("Dossier images absent");
+      alert("Il faut ajouter les éléments 'n' et 's', en cas d'échec faire F5");
   }
-
 }
+function validate_part4() {
 
+  if (true ){
+    next_part();
+  }
+  else {
+      alert("TODO");
+  }
+}
 current_part = null
 function start() {
     if (current_part == null) {

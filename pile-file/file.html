@@ -32,7 +32,7 @@
             <buton class="list-group-item">A</buton>
             <buton class="list-group-item">A</buton>
         </div>
-        <div id="div_garage" class="col-md-4">
+        <div id="div_garage" class="col-md-4" hidden>
             <div id="sens">
                 <h2>Sens de du Garage :</h2><br>
                 <h2>==></h2>
@@ -42,20 +42,49 @@
         </div>
     </div>
     <br><hr><br>
-    <div class="container questions">
-        <div id="part0" class="section">
+    <div class="container">
+        <div id="part0" class="section questions">
             Ouvrir la console Javascript et taper la commande start()
         <br/>
         </div>
-        <div id="part1" class="section cache">
+<!--        <div id="part1" class="section questions">-->
+        <div id="part1" class="section questions cache">
+            <h2>Partie 1 : Création d'une file</h2>
             <hr>
-           Partie 1 : Création d'une file <br> : file.
+            garage est un objet de type File avec les méthodes suivantes :
+            <ul>
+                <li>creer()</li>
+                <li>enfiler()</li>
+                <li>defiler()</li>
+                <li>est_vide()</li>
+            </ul>
+            <br><br>
+            <button onclick="validate_part1()" class="validation">Valider</button>
+        <br>
+        </div>
+        <div id="part2" class="section questions cache">
+<!--        <div id="part2" class="section questions">-->
+            <h2>Partie 2 : Enfiler un élément</h2>
+            <hr>
+            Enfiler l'élément "i" via la commande ci-dessous : <br>
+            <i>file.enfiler("i")</i>
+            <button onclick="validate_part2()" class="validation">Valider</button>
 
         </div>
-        <div id="part2" class="section cache">
+        <div id="part3" class="section questions cache">
+            <!--        <div id="part2" class="section questions">-->
+            <h2>Partie 3 : Former un mot</h2>
             <hr>
-            Partie  : Enfiler <br>
-
+            Continue d'enfiler les lettres afin de former le mot "nsi" <br>
+            <button onclick="validate_part3()" class="validation">Valider</button>
+        </div>
+        <div id="part4" class="section questions cache">
+            <!--        <div id="part2" class="section questions">-->
+            <h2>Partie 4 : Defiler</h2>
+            <hr>
+            Pour enlever une lettre, il vous suffit d'appeler la méthode defiler()<br>
+            Quel élément va être enlevé ? Testez pour vérifier
+            <button onclick="validate_part4()" class="validation">Valider</button>
         </div>
     </div>
     <script src="main.js"></script>
