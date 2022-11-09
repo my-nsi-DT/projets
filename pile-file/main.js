@@ -1,15 +1,15 @@
 colors = [("ligth_red","#ffb3b3"),("light_blue","#ccddff"),("light_green","#b3ffb3"),("light_yellow","#ffffb3"),("light_purple","#e0b3ff"),("light_brown","#ffcc99"),("light_pink","#ff99ff"),
 ("dark_red","#ff0000"),("dark_blue","#4d4dff"),("dark_green","#00cc44"),("dark_purple","#9933ff"),("dark_brown","#cc8800"),("dark_pink","#e600e6"),("dark_yellow","#e6e600")]
-const File  = {
-    contenu: [],
-    enfiler(element) {
+function File() {
+    this.contenu= [];
+    this.enfiler= function(element) {
         this.contenu.push(element)
         actualiserGarage()
-    },
-    creer() {
+    };
+    this.creer = function() {
        actualiserGarage()
-    },
-    defiler() {
+    };
+    this.defiler= function() {
         if (this.contenu.length == 0) {
             alert("Le garage est vide, defilement impossible")
         }
@@ -21,7 +21,7 @@ const File  = {
 };
 
 
-file = Object.create(File);
+file = new File();//Object.create(File);
 
 function enfilerGarage(garage, element,index) {
         // Prepare new item (className, id and color)
@@ -49,3 +49,39 @@ function actualiserGarage() {
 file.creer()
 file.enfiler("a")
 file.enfiler("b")
+
+function validate_part3() {
+  const cmd = document.getElementById("cmd3");
+  if (cmd.value.replace(" ","") == "mkdirimages") {
+    next_part();
+  }
+  else {
+      alert("Dossier images absent");
+  }
+
+}
+
+current_part = null
+function start() {
+    if (current_part == null) {
+    next_part()
+    }
+}
+function next_part() {
+    if (current_part == null) {
+        current_part = 0
+    }
+    //Hide previous parts
+    var responseItem = document.getElementById("part"+current_part);
+   console.log(current_part)
+   console.log(responseItem)
+    responseItem.style.display = "none";
+    if (current_part != 0) {
+
+    }
+    current_part += 1
+
+    // Reveal new one
+    responseItem = document.getElementById("part"+current_part);
+    responseItem.style.display = "block";
+}

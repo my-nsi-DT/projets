@@ -22,3 +22,15 @@
     flex-direction: column;
     align-items: center;
 }
+
+.cache {
+    display:none;
+}
+
+.questions {
+  background-color: black;
+  opacity: 85%;
+  border-radius: 25px;
+  border: 2px solid #grey;
+  padding: 10px
+}
