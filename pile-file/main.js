@@ -11,12 +11,12 @@ function File() {
     this.contenu= [];
     this.enfiler= function(element) {
         this.contenu.push(element)
-        actualiserGarage()
+        actualiser()
     };
     this.creer = function() {
 
         document.getElementById("div_garage").removeAttribute("hidden");
-       actualiserGarage()
+       actualiser()
     };
     this.defiler= function() {
         if (this.contenu.length == 0) {
@@ -24,7 +24,7 @@ function File() {
         }
         else {
             this.contenu = this.contenu.slice(1)
-            actualiserGarage()
+            actualiser()
         }
     }
     this.estVide = function() {
@@ -36,11 +36,11 @@ function Pile() {
     this.contenu= [];
     this.empiler= function(element) {
         this.contenu.push(element)
-        actualiserPlates()
+        actualiser()
     };
     this.creer = function() {
       document.getElementById("div_plates").removeAttribute("hidden");
-      actualiserPlates()
+      actualiser()
     };
     this.depiler= function() {
         if (this.contenu.length == 0) {
@@ -48,7 +48,7 @@ function Pile() {
         }
         else {
             this.contenu = this.contenu.slice(0,-1)
-            actualiserPlates()
+            actualiser()
         }
     }
     this.estVide = function() {
@@ -72,12 +72,24 @@ function creerElement(element,index) {
        return li_item
 
 }
-function actualiserPlates() {
-       var ul_liste = document.getElementById("plates");
+function actualiser() {
+        page = "File"
+       var ul_liste = document.getElementById("garage")
+       if (ul_liste == null) { // hack for pile
+        page = "Pile"
+         ul_liste = document.getElementById("plates")
+       }
        ul_liste.innerHTML = '';
 
        var items = []
-       pile_assiettes.contenu.forEach((item,index) => {
+       if (page == "File") {
+            structure = garage
+       } //TODO elif pour manipulation
+       else {
+            structure = pile_assiettes
+       }
+
+       structure.contenu.forEach((item,index) => {
             items.push(creerElement(item,index));
        })
        items = items.reverse()
@@ -170,7 +182,7 @@ function validate_part6() {
     next_part();
   }
   else {
-      alert("Il faut ajouter les éléments 'n' et 's', en cas d'échec faire F5");
+      alert("La méthode estvide permet de tester ça");
   }
 }
 function validate_part7() {
@@ -179,7 +191,7 @@ function validate_part7() {
     next_part();
   }
   else {
-      alert("Il faut ajouter les éléments 'n' et 's', en cas d'échec faire F5");
+      alert("La méthode estvide permet de tester ça");
   }
 }
 current_part = null
