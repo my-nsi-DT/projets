@@ -6,6 +6,7 @@ function reverseString(str) {
 
 var est_vide_called = false;
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////// Objet FILE/PILE ////////////////////////////////////////////////////////////////////////////////////////////////////////
 function File() {
     this.contenu= [];
     this.enfiler= function(element) {
@@ -31,9 +32,33 @@ function File() {
         return this.contenu.length == 0;
     }
 };
-
+function Pile() {
+    this.contenu= [];
+    this.empiler= function(element) {
+        this.contenu.push(element)
+        actualiserPlates()
+    };
+    this.creer = function() {
+      document.getElementById("div_plates").removeAttribute("hidden");
+      actualiserPlates()
+    };
+    this.depiler= function() {
+        if (this.contenu.length == 0) {
+            alert("La pile d'assiete est vide, depilement impossible")
+        }
+        else {
+            this.contenu = this.contenu.slice(0,-1)
+            actualiserPlates()
+        }
+    }
+    this.estVide = function() {
+        est_vide_called = true;
+        return this.contenu.length == 0;
+    }
+};
 
 garage = new File();//Object.create(File);
+pile_assiettes = new Pile()
 
 function creerElement(element,index) {
         // Prepare new item (className, id and color)
@@ -47,12 +72,12 @@ function creerElement(element,index) {
        return li_item
 
 }
-function actualiserGarage() {
-       var ul_liste = document.getElementById("garage");
+function actualiserPlates() {
+       var ul_liste = document.getElementById("plates");
        ul_liste.innerHTML = '';
 
        var items = []
-       garage.contenu.forEach((item,index) => {
+       pile_assiettes.contenu.forEach((item,index) => {
             items.push(creerElement(item,index));
        })
        items = items.reverse()
@@ -64,13 +89,14 @@ function actualiserGarage() {
 
 }
 
-// DEBUG ////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////// DEBUG ////////////////////////////////////////////////////////////////////////////////////////////////////////
 //file.creer()
 //file.enfiler("a")
 //file.enfiler("b")
 
 /////////////////////////////////////////////////////////////
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////// Affichage Questions ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //function validate_part3() {
 //  const cmd = document.getElementById("cmd3");
@@ -84,7 +110,12 @@ function actualiserGarage() {
 //}
 ////////////////////////////////// NAVIGATION ENTRE LES QUESTIONS ///////////////////////////////////
 function validate_part1() {
-  incomplet = document.getElementById("div_garage").hasAttribute("hidden");
+
+  div_a_devoiler = document.getElementById("div_garage")
+  if (div_a_devoiler == null) { // hack for pile
+    div_a_devoiler = document.getElementById("div_plates")
+    }
+  incomplet = div_a_devoiler.hasAttribute("hidden");
 
   if (incomplet){
     alert("Le garage n'a pas encore été créé");
