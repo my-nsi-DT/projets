@@ -7,6 +7,14 @@ function validate() {
     window.location.replace("./file.html");
 
   }
+  else if (responseItem.value == "1024") {
+      alert("Raccourcis vers les piles");
+      window.location.replace("./pile.html");
+    }
+  else if (responseItem.value == "2010") {
+        alert("Raccourcis vers les piles");
+            window.location.replace("./pile.html");
+      }
   else {
     alert("Mauvais code")
   }

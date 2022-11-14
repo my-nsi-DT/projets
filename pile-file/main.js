@@ -121,11 +121,13 @@ function actualiser() {
 //
 //}
 ////////////////////////////////// NAVIGATION ENTRE LES QUESTIONS ///////////////////////////////////
+est_file = true
 function validate_part1() {
 
   div_a_devoiler = document.getElementById("div_garage")
   if (div_a_devoiler == null) { // hack for pile
-    div_a_devoiler = document.getElementById("div_plates")
+    div_a_devoiler = document.getElementById("div_plates");
+    est_file = false;
     }
   incomplet = div_a_devoiler.hasAttribute("hidden");
 
@@ -138,8 +140,14 @@ function validate_part1() {
   }
 }
 function validate_part2() {
+   if (est_file) {
+    contenu = garage.contenu
+   }
+   else {
+    contenu = pile_assiettes.contenu
+   }
 
-  if (garage.contenu.length == 1 && garage.contenu[0] == "i"){
+  if (contenu.length == 1 && contenu[0] == "i"){
      console.log("Partie 2 terminée");
     next_part();
 
@@ -149,7 +157,13 @@ function validate_part2() {
   }
 }
 function validate_part3() {
-  if (garage.contenu.join('') == "isn" ){
+   if (est_file) {
+    contenu = garage.contenu
+   }
+   else {
+    contenu = pile_assiettes.contenu
+   }
+  if (contenu.join('') == "isn" ){
     console.log("Partie 3 terminée");
     next_part();
   }
@@ -158,16 +172,33 @@ function validate_part3() {
   }
 }
 function validate_part4() {
-  if (garage.contenu.join('') == reverseString("ns") ){
+   if (est_file) {
+    contenu = garage.contenu
+    mot = "file"
+    expected = reverseString("ns")
+   }
+   else {
+    contenu = pile_assiettes.contenu
+    mot = "pile"
+    exepected = reverseString("si")
+   }
+  if (contenu.join('') == exepected ){
     console.log("Partie 4 terminée");
     next_part();
   }
   else {
-      alert("Il faut defiler la file. Une méthode est faite pour ça. En cas d'échec faire F5");
+
+      alert("Il faut dé"+mot+"r la " + mot+ ". Une méthode est faite pour ça. En cas d'échec faire F5");
   }
 }
 function validate_part5() {
-  if (garage.contenu.join('') == reverseString("digital") ){
+   if (est_file) {
+    contenu = garage.contenu
+   }
+   else {
+    contenu = pile_assiettes.contenu
+   }
+  if (contenu.join('') == reverseString("digital") ){
     console.log("Partie 5 terminée");
     next_part();
   }

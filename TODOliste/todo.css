@@ -1,0 +1,9 @@
+li {
+    list-style-type: square;
+    font-weight: bold;
+}
+
+.terminee {
+    color: grey;
+    text-decoration-line: line-through;
+}
