@@ -180,9 +180,9 @@ function validate_part4() {
    else {
     contenu = pile_assiettes.contenu
     mot = "pile"
-    exepected = reverseString("si")
+    expected = reverseString("si")
    }
-  if (contenu.join('') == exepected ){
+  if (contenu.join('') == expected ){
     console.log("Partie 4 terminée");
     next_part();
   }
