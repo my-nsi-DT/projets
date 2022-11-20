@@ -1,0 +1,19 @@
+h1 {
+color : white;
+background-color:pink;
+}
+
+#message {
+    background-color: white;
+    border: solid black 2px;
+    width: 1000px;
+    height: 80px;
+    border-radius: 15px;
+}
+
+.message {
+ border: solid black 1px;
+ width: 1000px;
+ height: 80px;
+ border-radius: 5px;
+}

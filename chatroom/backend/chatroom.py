@@ -8,11 +8,11 @@ DATE_FORMAT="%d/%m/%Y %H:%M:%S"
 app = Flask(__name__)
 cors = CORS(app, resources={r"*": {"origins": "*"}})
 swagger = Swagger(app)
-messages = {"messages": [ 
+messages = {"contenu": [
 		{"expediteur":"Professeur",
 		"date": datetime.now().strftime(DATE_FORMAT),
-		"couleur": "red",
-		"contenu": "Bienvenue dans l'activité ChatRoom NSI. TODO Consignes"}
+		"couleur": "#f8d7da",
+		"message": "Bienvenue dans l'activité ChatRoom NSI. Tous les messages doivent être respectueux et écris en français !"}
 		]
 }
 
@@ -42,10 +42,9 @@ def ajout_message():
     # On recupere le corps (payload) de la requete
     payload = request.form.to_dict()
     if "couleur" not in payload:
-        payload["couleur"] = "grey";
+        payload["couleur"] = "#f7f7f7"
     payload["date"] = datetime.now().strftime(DATE_FORMAT);
-    messages["messages"].append(payload)
-    print(payload)
+    messages["contenu"].append(payload)
     return "ok",  status.HTTP_204_NO_CONTENT
         
 if __name__ == '__main__':
