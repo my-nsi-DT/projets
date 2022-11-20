@@ -15,9 +15,12 @@
 <body>
 <div class="contenu">
     <center><h1>ChatRoom NSI</h1></center>
-	<form action="http://localhost:5000/message/" method="POST">
+<!--	<form action="http://localhost:5000/message/" method="POST">-->
+	<form action="http://ymougenel.com:5002/message/" method="POST">
         <label>Expediteur</label>
 		<input name="expediteur" type="text" value="admin" required>
+        <label>Couleur</label>
+        <input name="couleur" type="color">
         <label>Message</label>
         <input id="message" name="message" type="text" value="mon premier message" placeholder="Tapez votre message ici">
         <button type="submit" class="btn btn-success">
