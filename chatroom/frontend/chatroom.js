@@ -40,7 +40,7 @@ function ajouter_message(div,data) {
    tag.className = "alert"
    tag.style.backgroundColor = data["couleur"]
 
-   var expediteur = document.createTextNode("@"+ data["expediteur"]+":  ");
+   var expediteur = document.createTextNode(data["expediteur"]+":  ");
    var message = document.createTextNode(data["message"]);
    tag.appendChild(expediteur);
    tag.appendChild(message)
