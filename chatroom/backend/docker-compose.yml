@@ -11,4 +11,4 @@ services:
       dockerfile: Dockerfile
     container_name: nsi-chatroom
     ports:
-      - 5001:5000
+      - 5002:5000
