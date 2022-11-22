@@ -47,45 +47,62 @@
     <button id="restart" type="button" class="btn btn-primary" onClick="restart()" >Recommencer</button>
     <hr><br>
     <div class="container">
-<!--        <div id="part0" class="section questions">-->
-<!--                On va maintenant chercher à inverser une pile. C'est à dire inverser son contenu.-->
-
-<!--            <br/>-->
-<!--            <hr>-->
-
-<!--            Les pile1 et pile2 sont des objets de type Pile, avec chacunes les méthodes suivantes :-->
-<!--            <ul>-->
-<!--                <li>creer()</li>-->
-<!--                <li>empiler()</li>-->
-<!--                <li>depiler()</li>-->
-<!--                <li>estVide()</li>-->
-<!--            </ul>-->
-<!--            <br><br>-->
-<!--            &ndash;&gt; Dans la console, appeler la méthode pour inverser les lettres "b""a" => "a""b"-->
-<!--            <br><br>-->
-<!--            <button onclick="validate_part1()" class="validation">Valider</button>-->
-<!--            <br>-->
-<!--        </div>-->
-<!--        <div id="part1" class="section questions">-->
-            En déduire l'algorithme pour inverser une pile.
-
+        <div id="part1" class="section questions">
+                On va maintenant chercher à inverser une pile. C'est à dire inverser son contenu.
 
             <br/>
             <hr>
 
-            <div id="div_algo_intructions">
+            Les pile1 et pile2 sont des objets de type Pile, avec chacunes les méthodes suivantes :
+            <ul>
+                <li>creer()</li>
+                <li>empiler()</li>
+                <li>depiler()</li>
+                <li>estVide()</li>
+            </ul>
+            <br><br>
+            --> Dans la console, appeler la méthode pour passer les lettres de la pile 1 à la pile 2.
+            <br><br>
+            <button onclick="validate_part1()" class="validation">Valider</button>
+            <br>
+        </div>
+        <div id="part2" class="section questions cache" >
+            Former le mot nsi dans la pile 1 (à partir des lettres de la pile 1.) <br>
+            <button onclick="validate_part2()" type="button" class="btn btn-primary" >Valider</button>
+            <br>
+        </div>
+
+
+            <br/>
+            <hr>
+        <div id="consignes" class="cache">
+            <h2> En déduire l'algorithme pour inverser une pile</h2>
+            <p>Cliquer sur les instructions pour construire votre algorithme</p>
+            <p>Attention votre cher professeur n'a pas encore ajouter la fonctionnalité "annuler", en cas d'erreur il faudra recommencer ! </p>
+        </div>
+
+            <div id="part3" class="cache">
+
                 <div id="instrictions_python" class="instruction">
                     <button type="button" class="btn btn-outline-info" onclick="ajouterInstruction(this)">non ..</button>
 <!--                    <button type="button" class="btn btn-outline-primary">compteur = 0</button>-->
                     <button type="button" class="btn btn-outline-info"  onclick="ajouterInstruction(this)">Tant que ..</button>
 <!--                    <button type="button" class="btn btn-outline-primary">compteur = compteur + 1</button>-->
-                    <button type="button" class="btn btn-outline-info"  onclick="ajouterInstruction(this)">element = </button>
-                    <button type="button" class="btn btn-outline-primary"  onclick="ajouterInstruction(this)">pile1.creer()  a faire fonction pil1 existe deja</button>
-                    <button type="button" class="btn btn-outline-primary"  onclick="ajouterInstruction(this)">pile1.empiler(element)</button>
-                    <!--                    <button type="button" class="btn btn-outline-primary">compteur = 0</button>-->
-                    <button type="button" class="btn btn-outline-primary"  onclick="ajouterInstruction(this)">element = pile1.depiler()</button>
+                    <button type="button" class="btn btn-outline-info"  onclick="ajouterInstruction(this)">element = ..</button>
+                    <!--                    <button type="button" class="btn btn-outline-info">compteur = 0</button>-->
                     <!--                    <button type="button" class="btn btn-outline-primary">compteur = compteur + 1</button>-->
+                    <button type="button" class="btn btn-outline-danger"  onclick="ajouterInstruction(this)" alt="indentation">░░░░░░</button>
+<!--                   pile.creer a faire fonction pil1 existe deja-->
+                    <button type="button" class="btn btn-outline-primary"  onclick="ajouterInstruction(this)">pile1.creer() </button>
+                    <button type="button" class="btn btn-outline-primary"  onclick="ajouterInstruction(this)">pile1.empiler(element)</button>
+
+                    <button type="button" class="btn btn-outline-primary"  onclick="ajouterInstruction(this)">pile1.depiler()</button>
+
                     <button type="button" class="btn btn-outline-primary"  onclick="ajouterInstruction(this)">pile1.estVide()</button>
+                    <button type="button" class="btn btn-outline-success"  onclick="ajouterInstruction(this)">pile2.creer() </button>
+                    <button type="button" class="btn btn-outline-success"  onclick="ajouterInstruction(this)">pile2.empiler(element)</button>
+                    <button type="button" class="btn btn-outline-success"  onclick="ajouterInstruction(this)">pile2.depiler()</button>
+                    <button type="button" class="btn btn-outline-success"  onclick="ajouterInstruction(this)">pile2.estVide()</button>
                 </div>
                 <div id="intructions_written">
                 </div>
@@ -93,13 +110,13 @@
             <br><br>
 
         </div>
-            <button onclick="validate_part1()" class="validation">Valider</button>
+            <button onclick="validate_part3()" type="button" class="btn btn-primary" >Valider</button>
             <br>
 <!--        <div id="part1" class="section questions">-->
         <div id="part1" class="section questions">
 
             </div>
-            <div id="part8" class="section cache">
+            <div id="part4" class="section cache">
                 <hr>
                 <h1>Félicitation !!!!</h1>
                 <h1>Il n'y a plus de question pour le moment</h1>

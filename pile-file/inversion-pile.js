@@ -12,6 +12,7 @@ var est_vide_called = false;
 document.getElementById("div_plates1").removeAttribute("hidden");
 document.getElementById("div_plates2").removeAttribute("hidden");
 INIT_PILE_EXO1 = ["A","B"]
+INIT_PILE_EXO2 = ["N","S","I"]
 // TODO: Fix: Si appel de fonction alors que pile non créée (contenu = None), alors alert
 function Pile() {
     this.contenu= [];
@@ -45,11 +46,16 @@ function Pile() {
         return this.contenu.length == 0;
     }
 };
-
+current_part = null;
 function restart() {
     pile1 = new Pile()
     pile2 = new Pile()
+    if (!current_part || current_part == 1) {
     pile1.contenu = INIT_PILE_EXO1
+    }
+    else {
+    pile1.contenu = INIT_PILE_EXO2
+    }
     actualiser()
 };
 restart();
@@ -98,7 +104,7 @@ var instructions_written = []
 function ajouterInstruction(item) {
     text = item.innerText
     instructions_written.push(text)
-    console.log(item)
+//    console.log(item)
     update_instructions_written()
 }
 
@@ -106,13 +112,33 @@ function update_instructions_written() {
     div_intructions_written = document.getElementById("intructions_written")
     div_intructions_written.innerText = ""
     current_text=""
-    instructions_written.forEach( (instuction) => {
-        if (instructions_written[-1] == ".") {
-            instructions_written.slice(0,-2)
-            div_intructions_written.appendChild(document.create('br')
+
+
+    instructions_written.forEach( (instruction, index) => {
+        // Remove the ..
+       if  (instruction.slice(-2,-1) == ".") {
+           instruction_cleaned = instruction.slice(0,-2) + "    ";
         }
-        var text = document.createTextNode(instuction);
+        else {
+                instruction_cleaned = instruction
+        }
+
+       var text = document.createTextNode(instruction_cleaned);
+       text.className="code";
+        // Ajout indentation
+//       index_tant_que = instructions_written.indexOf("Tant que ..")
+//        if (index_tant_que != -1 and index_tant_que <= index) {
+       if (instruction != "Tant que .." && instruction != "non .." && instruction != "pile1.estVide()" && ":") {
+            text.className="code indent";
+       }
+
+
         div_intructions_written.appendChild(text);
+
+        if (instruction.slice(-2,-1) != "." && instruction.slice(-2,-1) != "░") {
+            l = instruction
+            div_intructions_written.appendChild(document.createElement('br'));
+        }
 
     });
 }
@@ -122,26 +148,34 @@ est_file = true
 function validate_part1() {
 
 
-  if (pile1.conenu == [] && pile2.contenu == INIT_PILE_EXO1.reverse()) { // hack for pile
-    alert("Felicitation")
-    est_file = false;
+  if (pile1.contenu.length == 0 && pile2.contenu.join("") === "BA") { // hack for pile
+    console.log("Partie 1 validée")
+    next_part()
+    restart()
     }
-  incomplet = div_a_devoiler.hasAttribute("hidden");
-
-  if (incomplet){
-    alert("Le garage n'a pas encore été créé");
-  }
-  else {
-        console.log("Partie 1 terminée");
-      next_part();
-  }
+   else {
+    alert("Il faut que la pile1 soit vide et que la pile 2 continnent les même éléments de la pile 1")
+   }
 }
+
 function validate_part2() {
-   if (est_file) {
-    contenu = garage.contenu
+
+
+  if (pile1.contenu.length == 0 && pile2.contenu.join("") === "ISN") { // hack for pile
+    console.log("Partie 2 validée")
+    next_part()
+    }
+   else {
+    alert("Il faut que la pile1 soit vide et que la pile 2 continnent les même éléments de la pile 1")
+   }
+}
+function validate_part3() {
+
+   if (instructions_written.join("")  == "Tant que ..non ..pile1.estVide()░░░░░░element = ..pile1.depiler()░░░░░░pile2.empiler(element)") {
+        next_part()
    }
    else {
-    contenu = pile_assiettes.contenu
+        alert("Désolé mais ce n'est pas ça, as-tu ? 1. Vérifier l'indentation (block rouge) dans le tant que ? 2. Dérouler l'algorithme pour le cas AB");
    }
 
   if (contenu.length == 1 && contenu[0] == "i"){
@@ -153,75 +187,6 @@ function validate_part2() {
       alert("Il faut ajouter l'élément 'i', en cas d'échec faire F5");
   }
 }
-function validate_part3() {
-   if (est_file) {
-    contenu = garage.contenu
-   }
-   else {
-    contenu = pile_assiettes.contenu
-   }
-  if (contenu.join('') == "isn" ){
-    console.log("Partie 3 terminée");
-    next_part();
-  }
-  else {
-      alert("Il faut ajouter les éléments 'n' et 's', en cas d'échec faire F5");
-  }
-}
-function validate_part4() {
-   if (est_file) {
-    contenu = garage.contenu
-    mot = "file"
-    expected = reverseString("ns")
-   }
-   else {
-    contenu = pile_assiettes.contenu
-    mot = "pile"
-    expected = reverseString("si")
-   }
-  if (contenu.join('') == expected ){
-    console.log("Partie 4 terminée");
-    next_part();
-  }
-  else {
-
-      alert("Il faut dé"+mot+"r la " + mot+ ". Une méthode est faite pour ça. En cas d'échec faire F5");
-  }
-}
-function validate_part5() {
-   if (est_file) {
-    contenu = garage.contenu
-   }
-   else {
-    contenu = pile_assiettes.contenu
-   }
-  if (contenu.join('') == reverseString("digital") ){
-    console.log("Partie 5 terminée");
-    next_part();
-  }
-  else {
-      alert("Courage");
-  }
-}
-function validate_part6() {
-  if (est_vide_called){
-    est_vide_called = false;
-    console.log("Partie 6 terminée");
-    next_part();
-  }
-  else {
-      alert("La méthode estvide permet de tester ça");
-  }
-}
-function validate_part7() {
-  if (est_vide_called && garage.contenu.length == 0){
-    console.log("Partie 7 terminée");
-    next_part();
-  }
-  else {
-      alert("La méthode estvide permet de tester ça");
-  }
-}
 current_part = null
 function start() {
     if (current_part == null) {
@@ -229,18 +194,25 @@ function start() {
     }
 }
 function next_part() {
-    if (current_part == null) {
-        current_part = 0
+    if (current_part == null || current_part == 0) {
+        current_part = 1
     }
     //Hide previous parts
     var responseItem = document.getElementById("part"+current_part);
-    responseItem.style.display = "none";
-    if (current_part != 0) {
-
+    if (current_part != 3) {
+        responseItem.style.display = "none";
     }
     current_part += 1
 
     // Reveal new one
     responseItem = document.getElementById("part"+current_part);
-    responseItem.style.display = "block";
+    if (current_part != 3) {
+        responseItem.style.display = "block";
+    }
+    else {
+        var consignes = document.getElementById("consignes");
+        consignes.style.display = "block";
+        responseItem.style.display = "flex";
+    }
 }
+
