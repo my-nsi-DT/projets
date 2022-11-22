@@ -49,3 +49,25 @@
     justify-content: center;
     display: flex;
 }
+
+#restart {
+width:150px;
+height: 50px;
+}
+
+.instruction {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+#intructions_written {
+    background-color: #80808029;
+    width: 500px;
+    padding-left: 30px;
+    padding-top: 30px;
+}
+
+#div_algo_intructions {
+    display: flex;
+}

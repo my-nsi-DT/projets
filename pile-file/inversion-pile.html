@@ -29,53 +29,85 @@
     <div class="container" id="piles">
         <div id="div_plates1" class="col-md-6" >
             <div id="sens">
-                <h3>Pile 1 <i class="bi bi-arrow-down"></i></h3><br>
+                <h3>Pile 1</h3><br>
             </div>
           <ul id="plates1" class="list-group ul-piles">
           </ul>
         </div>
         <div id="div_plates2" class="col-md-6" >
             <div id="sens">
-                <h3>Pile 2 <i class="bi bi-arrow-down"></i></h3><br>
+                <h3>Pile 2</h3><br>
             </div>
           <ul id="plates2" class="list-group ul-piles">
           </ul>
 
         </div>
     </div>
-    <br><hr><br>
-    <div class="container">
-        <div id="part0" class="section questions">
-            On va maintenant chercher à inverser une pile. C'est à dire inverser son contenu.
-             
-        <br/>
-        <hr>
-
-        Les pile1 et pile2 sont des objets de type Pile, avec les méthodes suivantes :
-        <ul>
-            <li>creer()</li>
-            <li>empiler()</li>
-            <li>depiler()</li>
-            <li>estVide()</li>
-        </ul>
-        <br><br>
-        --> Dans la console, appeler la méthode pour creer le la pile d'assiettes.
-        <br><br>
-        <button onclick="validate_part1()" class="validation">Valider</button>
     <br>
+    <button id="restart" type="button" class="btn btn-primary" onClick="restart()" >Recommencer</button>
+    <hr><br>
+    <div class="container">
+<!--        <div id="part0" class="section questions">-->
+<!--                On va maintenant chercher à inverser une pile. C'est à dire inverser son contenu.-->
+
+<!--            <br/>-->
+<!--            <hr>-->
+
+<!--            Les pile1 et pile2 sont des objets de type Pile, avec chacunes les méthodes suivantes :-->
+<!--            <ul>-->
+<!--                <li>creer()</li>-->
+<!--                <li>empiler()</li>-->
+<!--                <li>depiler()</li>-->
+<!--                <li>estVide()</li>-->
+<!--            </ul>-->
+<!--            <br><br>-->
+<!--            &ndash;&gt; Dans la console, appeler la méthode pour inverser les lettres "b""a" => "a""b"-->
+<!--            <br><br>-->
+<!--            <button onclick="validate_part1()" class="validation">Valider</button>-->
+<!--            <br>-->
+<!--        </div>-->
+<!--        <div id="part1" class="section questions">-->
+            En déduire l'algorithme pour inverser une pile.
+
+
+            <br/>
+            <hr>
+
+            <div id="div_algo_intructions">
+                <div id="instrictions_python" class="instruction">
+                    <button type="button" class="btn btn-outline-info" onclick="ajouterInstruction(this)">non ..</button>
+<!--                    <button type="button" class="btn btn-outline-primary">compteur = 0</button>-->
+                    <button type="button" class="btn btn-outline-info"  onclick="ajouterInstruction(this)">Tant que ..</button>
+<!--                    <button type="button" class="btn btn-outline-primary">compteur = compteur + 1</button>-->
+                    <button type="button" class="btn btn-outline-info"  onclick="ajouterInstruction(this)">element = </button>
+                    <button type="button" class="btn btn-outline-primary"  onclick="ajouterInstruction(this)">pile1.creer()  a faire fonction pil1 existe deja</button>
+                    <button type="button" class="btn btn-outline-primary"  onclick="ajouterInstruction(this)">pile1.empiler(element)</button>
+                    <!--                    <button type="button" class="btn btn-outline-primary">compteur = 0</button>-->
+                    <button type="button" class="btn btn-outline-primary"  onclick="ajouterInstruction(this)">element = pile1.depiler()</button>
+                    <!--                    <button type="button" class="btn btn-outline-primary">compteur = compteur + 1</button>-->
+                    <button type="button" class="btn btn-outline-primary"  onclick="ajouterInstruction(this)">pile1.estVide()</button>
+                </div>
+                <div id="intructions_written">
+                </div>
+            </div>
+            <br><br>
+
         </div>
+            <button onclick="validate_part1()" class="validation">Valider</button>
+            <br>
 <!--        <div id="part1" class="section questions">-->
         <div id="part1" class="section questions">
 
-        </div>
-        <div id="part8" class="section cache">
-            <hr>
-            <h1>Félicitation !!!!</h1>
-            <h1>Il n'y a plus de question pour le moment</h1>
-            <iframe src="https://giphy.com/embed/cbb8zL5wbNnfq" width="700" height="700" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+            </div>
+            <div id="part8" class="section cache">
+                <hr>
+                <h1>Félicitation !!!!</h1>
+                <h1>Il n'y a plus de question pour le moment</h1>
+                <iframe src="https://giphy.com/embed/cbb8zL5wbNnfq" width="700" height="700" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 
+            </div>
         </div>
-    </div>
+
     <script src="inversion-pile.js"></script>
 </body>
 </html>

@@ -3,17 +3,24 @@ colors = [("ligth_red","#ffb3b3"),("light_blue","#ccddff"),("light_green","#b3ff
 function reverseString(str) {
     return str.split("").reverse().join("");
 }
+$(document).click(function(event) {
+    var text = $(event.target).text();
+});
+
 dernier_element = null;
 var est_vide_called = false;
 document.getElementById("div_plates1").removeAttribute("hidden");
 document.getElementById("div_plates2").removeAttribute("hidden");
+INIT_PILE_EXO1 = ["A","B"]
+// TODO: Fix: Si appel de fonction alors que pile non créée (contenu = None), alors alert
 function Pile() {
     this.contenu= [];
     this.empiler= function(element) {
-      if (element != dernier_element) {
-        alert("L'élement " + element + " ne vient pas directement de l'autre pile")
+      if (element[1] != "+") {
+        alert("L'élement " + element + " ne vient pas directement de l'autre pile. Il faut stocker l'élément depiler dans une variable")
+        restart();
       } else {
-        this.contenu.push(element)
+        this.contenu.push(element.slice(0,-1)) // Remove the "+" marker
         actualiser()
       }
 
@@ -30,7 +37,7 @@ function Pile() {
             this.contenu = this.contenu.slice(0,-1);
             actualiser();
         }
-        return dernier_element;
+        return dernier_element+"+"; // Marqueur pour vérifier que l'empilage se fait via variable => empile(elt) plutot que empile("B")
 
     }
     this.estVide = function() {
@@ -39,10 +46,13 @@ function Pile() {
     }
 };
 
-pile1 = new Pile()
-pile2 = new Pile()
-pile1.contenu = ["A","B","C"]
-actualiser()
+function restart() {
+    pile1 = new Pile()
+    pile2 = new Pile()
+    pile1.contenu = INIT_PILE_EXO1
+    actualiser()
+};
+restart();
 function creerElement(element,index) {
         // Prepare new item (className, id and color)
        var li_item = document.createElement("li");
@@ -84,13 +94,36 @@ function actualiser() {
        })
 }
 
+var instructions_written = []
+function ajouterInstruction(item) {
+    text = item.innerText
+    instructions_written.push(text)
+    console.log(item)
+    update_instructions_written()
+}
+
+function update_instructions_written() {
+    div_intructions_written = document.getElementById("intructions_written")
+    div_intructions_written.innerText = ""
+    current_text=""
+    instructions_written.forEach( (instuction) => {
+        if (instructions_written[-1] == ".") {
+            instructions_written.slice(0,-2)
+            div_intructions_written.appendChild(document.create('br')
+        }
+        var text = document.createTextNode(instuction);
+        div_intructions_written.appendChild(text);
+
+    });
+}
+
 ////////////////////////////////// NAVIGATION ENTRE LES QUESTIONS ///////////////////////////////////
 est_file = true
 function validate_part1() {
 
-  div_a_devoiler = document.getElementById("div_garage")
-  if (div_a_devoiler == null) { // hack for pile
-    div_a_devoiler = document.getElementById("div_plates");
+
+  if (pile1.conenu == [] && pile2.contenu == INIT_PILE_EXO1.reverse()) { // hack for pile
+    alert("Felicitation")
     est_file = false;
     }
   incomplet = div_a_devoiler.hasAttribute("hidden");
