@@ -51,7 +51,7 @@ function restart() {
     pile1 = new Pile()
     pile2 = new Pile()
     if (!current_part || current_part == 1) {
-    pile1.contenu = INIT_PILE_EXO1
+        pile1.contenu = INIT_PILE_EXO1
     }
     else {
     pile1.contenu = INIT_PILE_EXO2
@@ -71,6 +71,7 @@ function creerElement(element,index) {
        return li_item
 
 }
+
 function actualiser() {
       ul_liste1 = document.getElementById("plates1")
       ul_liste2 = document.getElementById("plates2")
@@ -187,15 +188,15 @@ function validate_part3() {
       alert("Il faut ajouter l'élément 'i', en cas d'échec faire F5");
   }
 }
-current_part = null
+
 function start() {
-    if (current_part == null) {
-    next_part()
+    if (!current_part) {
+        next_part()
     }
 }
 function next_part() {
-    if (current_part == null || current_part == 0) {
-        current_part = 1
+    if (current_part == null) {
+        current_part = 0
     }
     //Hide previous parts
     var responseItem = document.getElementById("part"+current_part);
@@ -210,6 +211,8 @@ function next_part() {
         responseItem.style.display = "block";
     }
     else {
+        var boutonValider = document.getElementById("valider3");
+        boutonValider.className = "btn btn-primary"
         var consignes = document.getElementById("consignes");
         consignes.style.display = "block";
         responseItem.style.display = "flex";

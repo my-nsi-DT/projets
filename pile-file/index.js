@@ -15,6 +15,10 @@ function validate() {
         alert("Raccourcis vers les piles");
             window.location.replace("./pile.html");
       }
+  else if (responseItem.value == "418") {
+      alert("Raccourcis vers les inversion de piles");
+           window.location.replace("./inversion-pile.html");
+   }
   else {
     alert("Mauvais code")
   }
