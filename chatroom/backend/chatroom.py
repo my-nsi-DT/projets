@@ -43,6 +43,7 @@ def ajout_message():
     payload = request.form.to_dict()
     if "couleur" not in payload:
         payload["couleur"] = "#f7f7f7"
+    app.logger.info('%s posted: %s',request.remote_addr,payload["message"])
     payload["date"] = datetime.now().strftime(DATE_FORMAT);
     messages["contenu"].append(payload)
     return "ok",  status.HTTP_204_NO_CONTENT
