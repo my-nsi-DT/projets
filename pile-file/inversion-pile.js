@@ -13,6 +13,7 @@ document.getElementById("div_plates1").removeAttribute("hidden");
 document.getElementById("div_plates2").removeAttribute("hidden");
 INIT_PILE_EXO1 = ["A","B"]
 INIT_PILE_EXO2 = ["N","S","I"]
+INIT_INSTRUCTIONS = ["pile2.creer()"]
 // TODO: Fix: Si appel de fonction alors que pile non créée (contenu = None), alors alert
 function Pile() {
     this.contenu= [];
@@ -57,6 +58,8 @@ function restart() {
     pile1.contenu = INIT_PILE_EXO2
     }
     actualiser()
+    instructions_written = INIT_INSTRUCTIONS
+    update_instructions_written()
 };
 restart();
 function creerElement(element,index) {
@@ -101,7 +104,7 @@ function actualiser() {
        })
 }
 
-var instructions_written = []
+var instructions_written = INIT_INSTRUCTIONS
 function ajouterInstruction(item) {
     text = item.innerText
     instructions_written.push(text)
@@ -172,21 +175,16 @@ function validate_part2() {
 }
 function validate_part3() {
 
-   if (instructions_written.join("")  == "Tant que ..non ..pile1.estVide()░░░░░░element = ..pile1.depiler()░░░░░░pile2.empiler(element)") {
+   if (instructions_written.join("")  == "pile2.creer()Tant que ..non ..pile1.estVide()░░░░░░element = ..pile1.depiler()░░░░░░pile2.empiler(element)") {
+        alert("Félicitation, vous avez l'algorithme pour inverser une pile !")
         next_part()
    }
    else {
+        instructions_written = INIT_INSTRUCTIONS
+        update_instructions_written()
         alert("Désolé mais ce n'est pas ça, as-tu ? 1. Vérifier l'indentation (block rouge) dans le tant que ? 2. Dérouler l'algorithme pour le cas AB");
    }
 
-  if (contenu.length == 1 && contenu[0] == "i"){
-     console.log("Partie 2 terminée");
-    next_part();
-
-  }
-  else {
-      alert("Il faut ajouter l'élément 'i', en cas d'échec faire F5");
-  }
 }
 
 function start() {
@@ -201,6 +199,7 @@ function next_part() {
     //Hide previous parts
     var responseItem = document.getElementById("part"+current_part);
     if (current_part != 3) {
+//        responseItem = document.getElementById("piles");
         responseItem.style.display = "none";
     }
     current_part += 1
