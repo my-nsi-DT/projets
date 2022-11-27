@@ -1,12 +1,13 @@
-var t=setInterval(actualiserMessages,1000);
+//var t=setInterval(actualiserMessages,1000);
+
 function actualiserMessages() {
     console.log("Actualisation des messages");
 
     // Je définis ma requête ajax
     $.ajax({
             // Adresse à laquelle la requête est envoyée
-//            url: 'http://localhost:5000/messages/',
-            url: 'http://ymougenel.com:5002/messages/',
+            url: 'http://localhost:5000/messages/',
+//            url: 'http://ymougenel.com:5002/messages/',
             // Méthode utilisée (POST/GET)
             type: 'GET',
             crossDomain: true,
@@ -37,9 +38,9 @@ function actualiserMessages() {
 function ajouter_message(div,data) {
 
    var tag = document.createElement("p");
-   tag.className = "alert"
+   tag.className = "alert message"
    tag.style.backgroundColor = data["couleur"]
-
+   tag.style.color = data["couleur_texte"]
    var expediteur = document.createTextNode(data["expediteur"]+":  ");
    var message = document.createTextNode(data["message"]);
    tag.appendChild(expediteur);
