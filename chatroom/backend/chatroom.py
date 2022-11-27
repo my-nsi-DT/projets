@@ -37,6 +37,13 @@ def get_all_messages():
     """
     return messages
 
+@app.route('/about', methods=['GET'])
+def about():
+    return "Bonjour je suis le serveur ymougenel.com, je suis à Strasbourg"
+
+@app.route('/secret', methods=['GET'])
+def get_secret():
+    return "Le code secret est : robocop"
 @app.route('/message/', methods=['POST'])
 def ajout_message():
     # On recupere le corps (payload) de la requete
