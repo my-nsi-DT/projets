@@ -12,18 +12,10 @@ function actualiserMessages() {
             type: 'GET',
             crossDomain: true,
             contentType: 'jsonp',
-            processData: false,
         // La fonction à apeller si la requête aboutie
-        success: function (data) {
+        success: function (messages) {
             // J'affiche mes données
-            l=data
-            var div = document.getElementById("messages");
-            div.innerHTML = "";
-            data["contenu"].reverse().forEach((m)=> {
-
-                ajouter_message(div,m)
-            })
-            console.log(data);
+            ajouter_messages(messages);
         },
 
         // La fonction à appeler si la requête n'a pas abouti
@@ -34,17 +26,20 @@ function actualiserMessages() {
 
     });
 }
+actualiserMessages();
+function ajouter_messages(messages) {
+    var div = document.getElementById("messages");
+    div.innerHTML = "";
+    messages["contenu"].reverse().forEach((contenu)=> {
+       var tag = document.createElement("p");
+       tag.className = "alert message"
+       tag.style.backgroundColor = contenu["couleur"]
+       tag.style.color = contenu["couleur_texte"]
+       var expediteur = document.createTextNode(contenu["expediteur"]+":  ");
+       var message = document.createTextNode(contenu["message"]);
+       tag.appendChild(expediteur);
+       tag.appendChild(message)
+       div.appendChild(tag);
+    });
 
-function ajouter_message(div,data) {
-
-   var tag = document.createElement("p");
-   tag.className = "alert message"
-   tag.style.backgroundColor = data["couleur"]
-   tag.style.color = data["couleur_texte"]
-   var expediteur = document.createTextNode(data["expediteur"]+":  ");
-   var message = document.createTextNode(data["message"]);
-   tag.appendChild(expediteur);
-   tag.appendChild(message)
-
-   div.appendChild(tag);
 }
