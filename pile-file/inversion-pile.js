@@ -58,7 +58,7 @@ function restart() {
     pile1.contenu = INIT_PILE_EXO2
     }
     actualiser()
-    instructions_written = INIT_INSTRUCTIONS
+    instructions_written = [...INIT_INSTRUCTIONS]
     update_instructions_written()
 };
 restart();
@@ -104,7 +104,7 @@ function actualiser() {
        })
 }
 
-var instructions_written = INIT_INSTRUCTIONS
+var instructions_written = [...INIT_INSTRUCTIONS]
 function ajouterInstruction(item) {
     text = item.innerText
     instructions_written.push(text)
@@ -180,7 +180,7 @@ function validate_part3() {
         next_part()
    }
    else {
-        instructions_written = INIT_INSTRUCTIONS
+        instructions_written = [...INIT_INSTRUCTIONS]
         update_instructions_written()
         alert("Désolé mais ce n'est pas ça, as-tu ? 1. Vérifier l'indentation (block rouge) dans le tant que ? 2. Dérouler l'algorithme pour le cas AB");
    }

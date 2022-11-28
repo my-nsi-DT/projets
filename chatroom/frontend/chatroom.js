@@ -6,8 +6,8 @@ function actualiserMessages() {
     // Je définis ma requête ajax
     $.ajax({
             // Adresse à laquelle la requête est envoyée
-            url: 'http://localhost:5000/messages/',
-//            url: 'http://ymougenel.com:5002/messages/',
+//            url: 'http://localhost:5000/messages/',
+            url: 'http://ymougenel.com:5002/messages/',
             // Méthode utilisée (POST/GET)
             type: 'GET',
             crossDomain: true,
