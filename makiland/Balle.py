@@ -1,42 +1,21 @@
 import pygame, sys
 
 from constants import *
-import random
-
 
 class Balle(pygame.sprite.Sprite):
-    def __init__(self):
+    def __init__(self, x, y):
         super(Balle, self).__init__()
         self.surf = pygame.Surface((BALLE_TAILLE, BALLE_TAILLE))
-        self.surf.fill((0, 200, 0))
+        self.surf.fill(COULEUR_BALLE)
         self.rect = self.surf.get_rect()
 
-        position_x = random.randint(0, ECRAN_LARGEUR)
-        self.rect.move_ip(position_x, ECRAN_HAUTEUR / 4)
-        self.vx = 1
-        self.vy = 1
+        self.rect.move_ip(x, y)
+        self.vx = 0
+        self.vy = -1
         self.vitesse = VITESSE_BALLE
 
     def deplacer(self):
-        vitesse = max(self.vitesse, VITESSE_BALLE_MINIMUM)
-        self.rect.move_ip(self.vx * vitesse, self.vy * vitesse)
-        self.vitesse = self.vitesse - VITESSE_BALLE_REDUCTION
-        if self.rect.left < 0 or self.rect.right > ECRAN_LARGEUR:
-            self.vx *= -1
-            print("Balle touche gauche/droite")
-            self.remettre_vitesse()
-        if self.rect.top < 0:
-            self.vy = self.vy * -1
-            print("Balle touche haut")
-            self.remettre_vitesse()
-        if self.rect.bottom - self.surf.get_height() > RAQUETTE_LIGNE:
-            print("Lancement evenement fin de partie")
-            pygame.event.post(pygame.event.Event(Events.BALLE_PERDUE.value, {}))
-
-            print("Partie perdue")
-
-    def remettre_vitesse(self):
-        self.vitesse = VITESSE_BALLE
+        self.rect.move_ip(self.vx * self.vitesse, self.vy * self.vitesse)
 
     def display(self, screen: pygame.Surface):
         screen.blit(self.surf, self.rect)

@@ -1,5 +1,8 @@
 import pygame
 import sys
+from constants import *
+from projets.makiland.Joueur import Joueur
+from projets.makiland.Monstre import Monstre
 from pygame.locals import (
     K_UP,
     K_DOWN,
@@ -8,41 +11,26 @@ from pygame.locals import (
     K_ESCAPE,
     KEYDOWN,
     QUIT,
+    K_SPACE,
 )
-# Constants
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
-ELEMENT_COLOR = "red"
-
-class Element(pygame.sprite.Sprite):
-    def __init__(self):
-        super(Element, self).__init__()
-        # self.surf = pygame.image.load("assets/image.jpeg")
-        self.surf = pygame.Surface((75, 50))
-        self.surf.fill(ELEMENT_COLOR)
-        self.rect = self.surf.get_rect()
-        self.rect.move_ip(SCREEN_WIDTH / 2, SCREEN_HEIGHT * 3 / 4)
-
-    def display(self, screen: pygame.Surface):
-        screen.blit(self.surf, self.rect)
-
 
 if __name__ == "__main__":
     pygame.init()
-    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    screen = pygame.display.set_mode((ECRAN_LARGEUR, ECRAN_HAUTEUR))
 
     CUSTOM_TYPE = pygame.USEREVENT + 1
-
-    all_sprites = pygame.sprite.Group()
-    element = Element()
-    all_sprites.add(element)
+    monstres = pygame.sprite.Group()
+    balles = pygame.sprite.Group()
+    joueur = Joueur()
     clock = pygame.time.Clock()
+    for i in range(8):
+        monstres.add(Monstre(i * MONSTRE_LARGEUR + i * 3, 0))
 
     while True:
         # Process collisions
-        # collision = pygame.sprite.spritecollide(element, [all_sprites], False)
-        # if collision:
-        #     print("Collision")
+        for balle in balles:
+            monstres_touches = pygame.sprite.spritecollide(balle, monstres, False)
+            monstres.remove(monstres_touches)
 
         # Handle events
         for event in pygame.event.get():
@@ -51,18 +39,26 @@ if __name__ == "__main__":
                     sys.exit()
             elif event.type == QUIT:
                 sys.exit()
-            elif event.type == CUSTOM_TYPE:
-                print("Custom event received")
 
-        pressed_keys = pygame.key.get_pressed()
-        if pressed_keys[K_UP]:
-            print("Move Up")
+        # Touches pressées
+        touches_clavier = pygame.key.get_pressed()
+        if touches_clavier[K_LEFT]:
+            joueur.reculer()
+        elif touches_clavier[K_RIGHT]:
+            joueur.avancer()
+        elif touches_clavier[K_SPACE]:
+            balles.add(joueur.tirer())
 
-    # Display elements
-    screen.fill(BACKGROUND_COLOR)
-    for sprite in all_sprites:
-        sprite.display(screen)
+        # Affiche les éléments
+        screen.fill(COULEUR_ECRAN)
+        joueur.display(screen)
+        for balle in balles:
+            balle.deplacer()
+            balle.display(screen)
+        for monstre in monstres:
+            monstre.display(screen)
+        joueur.display(screen)
+        pygame.display.flip()
 
-    pygame.display.flip()
-    # Ensure frame rate
-    clock.tick(30)
+        # Ensure frame rate
+        clock.tick(30)

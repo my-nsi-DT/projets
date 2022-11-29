@@ -5,4 +5,4 @@
 pip install -r requirements.txt -v
 ```
 
-https://realpython.com/pygame-a-primer/#initialization-and-modules
+https://realpython.com/pyggame-a-primer/#initialization-and-modules
