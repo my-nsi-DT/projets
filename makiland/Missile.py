@@ -2,17 +2,17 @@ import pygame, sys
 
 from constants import *
 
-class Balle(pygame.sprite.Sprite):
+class Missile(pygame.sprite.Sprite):
     def __init__(self, x, y):
-        super(Balle, self).__init__()
-        self.surf = pygame.Surface((BALLE_TAILLE, BALLE_TAILLE))
-        self.surf.fill(COULEUR_BALLE)
+        super(Missile, self).__init__()
+        self.surf = pygame.Surface((MISSILE_TAILLE, MISSILE_TAILLE))
+        self.surf.fill(COULEUR_MISSILE)
         self.rect = self.surf.get_rect()
 
         self.rect.move_ip(x, y)
         self.vx = 0
         self.vy = -1
-        self.vitesse = VITESSE_BALLE
+        self.vitesse = VITESSE_MISSILE
 
     def deplacer(self):
         self.rect.move_ip(self.vx * self.vitesse, self.vy * self.vitesse)
