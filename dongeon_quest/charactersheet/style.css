@@ -1,0 +1,42 @@
+body {
+  margin: 20px;
+  /*background-image: url('https://www.wallpaperup.com/uploads/wallpapers/2013/07/13/118217/66e9d44b4a6a9483796309f5ded85461.jpg');
+    */
+}
+.row {
+    display:flex;
+    flex-direction: row;
+}
+
+.vertical {
+    display: flex;
+    flex-direction: column;
+}
+div section {
+    border-
+}
+
+
+#main-info table {
+    font-size: 3em;
+}
+
+#identity {
+    display: flex;
+
+}
+
+.competences {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 2em;
+}
+.skills {
+   width:100%;
+}
+
+#row2 {
+    display: flex;
+    justify-content: space-between;
+}
