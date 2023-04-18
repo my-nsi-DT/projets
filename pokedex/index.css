@@ -1,12 +1,12 @@
 body {
-    margin:20%;
+    margin:10%;
     background-image: url('https://cdn.creazilla.com/illustrations/1668489/space-pokemon-go-virtual-illustration-md.jpeg');
     background-repeat: repeat;
 }
 
 #cards {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 .card-body a {
     display:none;
