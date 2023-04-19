@@ -9,10 +9,10 @@
     <a href="../index.html"><button type="button" class="btn btn-primary">Retour à l'acceuil</button></a>
     <div class="content">
         <center><h1>Création d'un pokedex</h1></center>
-        <h2>L'environnement de Travail</h2>
+<!--         ########################################### ENVIRONEMENT PROGRAMMIZ ###########################################-->
+        <h1>L'environnement de Travail</h1>
 
-        On va utiliser Programmiz afin de faire notre site web:<br>
-        <!--<a href="https://www.programiz.com/html/online-compiler/">Editeur en ligne Programiz</a></li>-->
+        On va utiliser Programmiz afin de faire notre site web <a href="https://www.programiz.com/html/online-compiler/">-->Lien Programmiz<--</a><br>
         <img src="images/editeur-programiz.png" style="width: 50%" />
         <br><br>
         Tout à gauche on retrouve nos fichiers :
@@ -22,60 +22,66 @@
             <li>index.js : les intéractions</li>
         </ul>
         Cliquer pour ouvrir les fichiers index.css puis index.js <br>
-        <span class="question">Question 1.1 : Que contient le fichier index.js ?<br><br></span>
+        <div class="question">Question 1.1 : Que contient le fichier index.js ?</div>
 
-        Nous rentrerons plus en détails sur les fichiers css et js par la suite, pour le moment revenons sur le fichier index.html.<br>
+        Nous rentrerons plus en détails sur les fichiers css et js par la suite, pour le moment revenons sur le fichier index.html :<br>
 
-        Le contenu html est à gauche, il s'agit de balises, et le rendu de la page. <br>
+        Le contenu (balises html) est à gauche ; et à droite c'est le rendu de la page. <br>
         Le développeur créé sa page en HTML (à gauche), et les utilisateur voit le rendu à droite.<br><br>
 
-        <span class="exercice">Exercice : Changer le contenu de en noir pour voir les modifications à droite. </span><br><br>
-        <span class="question">Question 1.2 : Que-ce-qui change dans la page quand vous remplacez le texte Browser par Mario ?</span> <br><br>
+        <div class="exercice">Exercice : Changer le contenu de en noir pour voir les modifications à droite. </div>
+        <div class="question">Question 1.2 : Que-ce-qui change dans la page quand vous remplacez le texte Browser par Mario ?</div>
 
         Vous pouvez maintenant supprimer tout le code existant, c'est à notre tour d'écrire. Tapez juste votre prénom, il doit s'afficher à droite.
 
+        <!--         ########################################### PREMIERES BALISES ###########################################-->
         <h1>Premières balises</h1>
         Copier coller (clique droit "copier", puis dans programiz -> clique droit coller") la ligne suivante : <br><br>
-        &lt;h1&gt;
-        Pokedex
-        &lt;/h1&gt;
+        <div class="code">&lt;h1&gt;Pokedex&lt;/h1&gt;</div>
         <br><br>
         <b>h1 est une balise, cela correspond à un titre : Tout le texte dans la balise sera un titre.</b>
         <br><img src="images/balise.png"> <br>
 
         Ecrire en dessous du titre : <br/>
-        <hr>
-        dresseur : nom_d_equipe <br><hr>
+        <div class="code">dresseur : nom_d_equipe</div>
 
         Ajouter maitenant la balise b : elle permet de mettre en gras du texte. <br>
         Le debut de la balise &lt;b&gt; se place devant le texte ciblé, et on ferme la balise avec un / : &lt;b&gt; placé derrière le texte.
 
-        <span class="exercice">Exercice : Rendre le texte Dresseur en gras :</span><br><br>
-        &lt;b&gt;Dresseur:&lt;/b&gt;
-
+        <div class="exercice">Exercice : Rendre le texte Dresseur en gras :</div>
+        <div class="code">&lt;b&gt;Dresseur:&lt;/b&gt;</div>
+        <div class="question">Question 1.3 : Quel effet donne la balise u ?</div>
+        <!--         ########################################### SAUT LIGNE ###########################################-->
         <h1>Le saut de ligne, une balise orpheline</h1>
         Ecrire le texte suivant en dessous du nom de groupe : <br>
-        <hr>
-        Cordée Numérique <br>
-        Mayotte <br>
-        <hr>
+        <div class="code">
+            Cordée Numérique <br>
+            Mayotte <br>
+        </div>
         Comment faire pour sauter une ligne ? Tester la touche "Entrée". <br>
         -> Pour sauter une ligne il faut ajouter la balise <b>&lt;br&gt;</b> , cette balise est dites orpheline, c'est à dire qu'on ne la ferme pas (pas de &lt;/br&gt;).
-        <span class="exercice">Exercice : Ajouter une balise br afin de sauter une ligne</span><br><br>
+        <div class="exercice">Exercice : Ajouter une balise br afin de sauter une ligne</div>
 
-        <span class="question">Question 1.3 : hr est également une balise orpheline, mais que fait-elle ?</span>
+        <div class="question">Question 1.4 : hr est également une balise orpheline, mais que fait-elle ?</div>
+
+        <!--         ########################################### BALISES IMBRIQUEES ###########################################-->
         <h1>Balises imbriquées</h1>
 On peut appliqué plusieurs balises à un texte, par exemple pour centrer un titre (deux solutions): <br>
-       <ul>
-           <li>&lt;h1&gt;&lt;center&gt;Titre centré&lt;/center&gt;&lt;/h1&gt;</li>
-           <li>&lt;center&gt;&lt;h1&gt;Titre centré&lt;/h1&gt;&lt;/center&gt;</li>
-        </ul>
+      <div class="code">
+           <ul>
+               <li>&lt;h1&gt;&lt;center&gt;Titre centré&lt;/center&gt;&lt;/h1&gt;</li>
+               <li>&lt;center&gt;&lt;h1&gt;Titre centré&lt;/h1&gt;&lt;/center&gt;</li>
+            </ul>
+      </div>
+        <div class="exercice">Exercice : Faire en sorte que le titre Pokedex soit centré</div>
+
         <h1>Ajout d'images</h1>
         <ol>
             <li>Télécharger <a href="./images/pokedex.png">l'image suivante</a> (clique droit, sauvegarder l'image sous)</li>
             <li>Charger l'image précédemment téléchargée (Upload Asset)</li>
             <img src="images/programiz-add.png" style="width: 10%" /> <br>
-            <li>Ajouter la balise pour avoir une image :&lt;img src="./pokedex.png"/&gt; </li>
+            <li>Ajouter la balise pour avoir une image :
+                <span class="code">&ltimg src="./pokedex.png"/&gt;</span> </li>
         </ol>
         <h1>Pensez à télécharger votre travail</h1>
         Pour cela cliquez sur la fleche tout en bas à gauche. Cela génère un zip : c'est une archive regroupant tous les fichiers du projet.
