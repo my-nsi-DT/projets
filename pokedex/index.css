@@ -6,8 +6,16 @@ body {
 
 #cards {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
+
+.card-rowy {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .card-body a {
     display:none;
 }
@@ -15,4 +23,8 @@ body {
 .card:hover a {
     display:block;
 
+}
+
+.card {
+    background-color: #92A8D1;
 }
