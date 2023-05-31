@@ -1,0 +1,16 @@
+img {
+  width: 400px
+}
+
+.terminal {
+	background: black;
+	font-family: monospace,courier,fixed,swiss,sans-serif;
+	color: #f0f0f0;
+}
+
+.terminal input {
+	background: black;
+	font-family: monospace,courier,fixed,swiss,sans-serif;
+	color: #f0f0f0;
+}
+

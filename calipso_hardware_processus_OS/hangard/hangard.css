@@ -1,0 +1,13 @@
+body {
+  background-image: url('https://i.redd.it/erahf1ssthcy.jpg');
+  background-repeat: no-repeat;
+}
+
+.items {
+  display: flex;
+}
+
+.items img {
+  width: 300px;
+  height: 300px;
+}

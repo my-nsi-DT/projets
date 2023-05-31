@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="dir_hangard.css">
+  </head>
+  <body>
+      <!-- Note à moi même ! Penser à déplacer le Javascript dans un autre fichier -->
+    <div id="content">
+      <input type="text" id="code"> Taper votre digicode ici</input><br/>
+      <button onclick="validate()">Valider</button>
+      <br><br>
+
+    </div>
+
+     <script>
+	var code = "jupit&r"
+	function validate() {
+	  const responseItem = document.getElementById("code");
+	  if (responseItem.value == code) {
+	    alert("Felicitation");
+	    window.location.replace("../entrepot2.html");
+
+	  }
+	  else {
+	    alert("Mauvais code")
+	  }
+	}
+     </script>
+</body>
+</html>

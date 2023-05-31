@@ -1,0 +1,160 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="entrepot.css">
+    <link rel="stylesheet" href="index.css">
+	  <meta charset="UTF-8">
+  </head>
+  <body>
+    <div id="content">
+		<div id="part0" class="section">
+			Vous revoila enfin ! S'exclame le capitaine, vite il ne nous reste plus beaucoup de temps !<br>
+			L'ordinateur de pilotage se trouve la bas, c'est en linux mais ça devrait aller pour vous !
+			  <br/>
+		</div>
+		  <div id="part1" class="section">
+			  <hr>
+		  Pendant que vous vous rendez sur l'ordinateur, Tommy le stagiaire vient vous voir et vous avoue quelquechose :<br>
+			  C'est lui qui a fait planté l'ordinateur de pilotage en voulant jouer à call of duty...<br>
+		  Vous aller devoir en premier tuer le processus call-of-duty. Tommy tape la commande ps pour lister les processus en cours, et vous dis qu'il se souvient que pour terminer un processu il faut taper la commande <b>kill</b> suivie du PID du processus.
+			<div class="terminal">
+			> ps aux <br />
+			USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+			root           1  0.0  0.0 167868 13536 ?        Ss   16:07   0:01 /sbin/init
+			root           2  0.0  0.0      0     0 ?        S    16:07   0:00 kthreadd<br/>
+			root           3  0.0  0.0      0     0 ?        I<   16:07   0:00 rcu_gp<br/>
+			root           4  0.0  0.0      0     0 ?        I<   16:07   0:00 rcu_par_gp<br/>
+			root           5  0.0  0.0      0     0 ?        I<   16:07   0:00 slub_flushwq<br/>
+			root          16  0.0  0.0      0     0 ?        S    16:07   0:00 ksoftirqd/0<br/>
+			root         101  0.0  0.0      0     0 ?        I<   16:07   0:00 blkcg_punt_bio<br/>
+			root         103  0.0  0.0      0     0 ?        I    16:07   0:00 kworker/11:1-mm_percpu_wq<br/>
+			root         104  0.0  0.0      0     0 ?        I<   16:07   0:00 ata_sff<br/>
+			root         105  0.0  0.0      0     0 ?        I<   16:07   0:00 kworker/1:1H-events_highpri<br/>
+			root         106  0.0  0.0      0     0 ?        I<   16:07   0:00 edac-poller<br/>
+			root         107  0.0  0.0      0     0 ?        I<   16:07   0:00 devfreq_wq<br/>
+			root         108  0.0  0.0      0     0 ?        S    16:07   0:00 watchdogd<br/>
+			root         140  0.0  0.0      0     0 ?        I<   16:07   0:00 kworker/7:1H-kblockd<br/>
+			root         143  0.0  0.0      0     0 ?        I<   16:07   0:00 kstrp<br/>
+			root         144  0.0  0.0      0     0 ?        I    16:07   0:00 kworker/4:1-events<br/>
+			root         150  0.0  0.0      0     0 ?        I<   16:07   0:00 zswap1<br/>
+			root         151  0.0  0.0      0     0 ?        I<   16:07   0:00 zswap1<br/>
+			root         152  0.0  0.0      0     0 ?        I<   16:07   0:00 zswap-shrink<br/>
+			root         153  0.0  0.0      0     0 ?        I<   16:07   0:00 kworker/u25:0-rb_allocator<br/>
+			root         192  0.0  0.0      0     0 ?        I<   16:07   0:00 charger_manager<br/>
+			root         194  0.0  0.0      0     0 ?        I<   16:07   0:00 kworker/6:1H-events_highpri<br/>
+			root         221  0.0  0.0      0     0 ?        I    16:07   0:00 kworker/5:2-mm_percpu_wq<br/>
+			root         225  0.0  0.0      0     0 ?        I<   16:07   0:00 kworker/9:1H-events_highpri<br/>
+			root         226  0.0  0.0      0     0 ?        I<   16:07   0:00 kworker/8:1H-kblockd<br/>
+			root         228  0.0  0.0      0     0 ?        I<   16:07   0:00 kworker/5:1H-events_highpri<br/>
+			root         245  0.0  0.0      0     0 ?        I<   16:07   0:00 kworker/10:1H-events_highpri<br/>
+			root         246  0.0  0.0      0     0 ?        I<   16:07   0:00 kworker/4:1H-events_highpri<br/>
+			root         247  0.0  0.0      0     0 ?        I<   16:07   0:00 kworker/2:1H-events_highpri<br/>
+			root         248  0.0  0.0      0     0 ?        I    16:07   0:00 kworker/9:2-inet_frag_wq<br/>
+			root         250  0.0  0.0      0     0 ?        I<   16:07   0:00 kworker/3:1H-events_highpri<br/>
+			root         257  0.0  0.0      0     0 ?        I    16:07   0:00 kworker/10:2-events<br/>
+			root         259  0.0  0.0      0     0 ?        S    16:07   0:00 jbd2/sdb4-8<br/>
+			root         260  0.0  0.0      0     0 ?        I<   16:07   0:00 ext4-rsv-conver<br/>
+			root         295  0.0  0.1  56868 29468 ?        Ss   16:07   0:00 /usr/lib/systemd/systemd-journald
+			root         301  0.0  0.0      0     0 ?        I    16:07   0:00 kworker/6:2-events<br/>
+			root         306  0.0  0.0      0     0 ?        I<   16:07   0:00 kmpathd<br/>
+			root         307  0.0  0.0      0     0 ?        I<   16:07   0:00 kmpath_handlerd<br/>
+			root         308  0.0  0.0  32580 10052 ?        Ss   16:07   0:00 /usr/lib/systemd/systemd-udevd
+			root         309  0.0  0.0      0     0 ?        I    16:07   0:01 kworker/7:2-events<br/>
+			root         358  0.0  0.0      0     0 ?        I    16:07   0:00 kworker/0:3-events<br/>
+			root         363  0.0  0.0      0     0 ?        I    16:07   0:00 kworker/8:2-cgroup_destroy<br/>
+			root         386  0.0  0.0      0     0 ?        S    16:07   0:00 irq/51-DELL0825:00<br/>
+			root         392  0.0  0.0      0     0 ?        I<   16:07   0:00 cfg80211<br/>
+			root         395  0.0  0.0      0     0 ?        S    16:07   0:00 irq/128-mei_me<br/>
+			root         397  0.0  0.0      0     0 ?        I<   16:07   0:00 cryptd<br/>
+			root         398  0.0  0.0      0     0 ?        S    16:07   0:00 irq/129-iwlwifi:default_queue<br/>
+			root         399  0.0  0.0      0     0 ?        S    16:07   0:00 irq/130-iwlwifi:queue_1<br/>
+			root         400  0.0  0.0      0     0 ?        S    16:07   0:00 irq/131-iwlwifi:queue_2<br/>
+			root         401  0.0  0.0      0     0 ?        S    16:07   0:00 irq/132-iwlwifi:queue_3<br/>
+			root         402  0.0  0.0      0     0 ?        S    16:07   0:00 irq/133-iwlwifi:queue_4<br/>
+			root         404  0.0  0.0      0     0 ?        S    16:07   0:00 irq/134-iwlwifi:exception<br/>
+			root         405  0.0  0.0      0     0 ?        S    16:07   0:00 card0-crtc0<br/>
+			root         407  0.0  0.0      0     0 ?        S    16:07   0:00 card0-crtc1<br/>
+			root         408  0.0  0.0      0     0 ?        S    16:07   0:00 card0-crtc2<br/>
+			root         420  0.0  0.0      0     0 ?        I    16:07   0:00 call-of-duty<br/>
+			root         441  0.0  0.0      0     0 ?        S    16:07   0:00 jbd2/sda4-8<br/>
+			root         442  0.0  0.0      0     0 ?        I<   16:07   0:00 ext4-rsv-conver<br/>
+			root         444  0.0  0.0      0     0 ?        I    16:07   0:01 kworker/3:2-events<br/>
+			root         447  0.0  0.0      0     0 ?        D    16:07   0:00 jbd2/sda3-8<br/>
+			root         448  0.0  0.0      0     0 ?        I<   16:07   0:00 ext4-rsv-conver<br/>
+			root         463  0.0  0.0      0     0 ?        I<   16:07   0:00 USBC000:00-con0<br/>
+			root         470  0.0  0.0      0     0 ?        S    16:07   0:00 nv_queue<br/>
+			root         471  0.0  0.0      0     0 ?        S    16:07   0:00 nv_queue<br/>
+			root         507  0.0  0.0      0     0 ?        S    16:07   0:00 nvidia-modeset/kthread_q<br/>
+			root         508  0.0  0.0      0     0 ?        S    16:07   0:00 nvidia-modeset/deferred_close_kthread_q<br/>
+			root         514  0.0  0.0      0     0 ?        S    16:07   0:00 UVM global queue<br/>
+			root         515  0.0  0.0      0     0 ?        S    16:07   0:00 UVM deferred release queue<br/>
+			root         516  0.0  0.0      0     0 ?        S    16:07   0:00 UVM Tools Event Queue<br/>
+			root	     628  0.0  0.0  19788 11912 ?        Ss   16:07   0:00 /usr/lib/systemd/systemd-resolved <br/>
+			root	     629  0.0  0.0  89484  6924 ?        Ssl  16:07   0:00 /usr/lib/systemd/systemd-timesyncd<br/>
+			root	     640  0.0  0.0   3148  2044 ?        S    16:07   0:00 dhcpcd: manager ip4 ip6<br/>
+			root         641  0.0  0.0   3384  2628 ?        S    16:07   0:00 dhcpcd: privileged proxy<br/>
+			root 	     642  0.0  0.0   2884   280 ?        S    16:07   0:00 dhcpcd: network proxy<br/>
+			root         643  0.0  0.0   2876   280 ?        S    16:07   0:00 dhcpcd: control proxy<br/>
+			root         790  0.3  0.0      0     0 ?        S    16:07   0:05 irq/141-nvidia<br/>
+			root         791  0.0  0.0      0     0 ?        S    16:07   0:00 nvidia<br/>
+			root         792  1.9  0.0      0     0 ?        S    16:07   0:25 nv_queue<br/>
+			<br />
+		><input id="cmd1" placeholder="tapez votre commande ici"><button onclick="validate_part1()">Valider</button>
+			</div>
+		  </div>
+
+		<div id="part2" class="section" hidden="true">
+			<hr>
+			Partie 1 : Terminée <br>
+		Partie 2 : <br>
+				<label for="ram">Modèle de la RAM</label>
+				<select name="ram" id="ram">
+					<option value="DDR16Go">DDR16Go</option>
+					<option value="DDR32Go">DDR32Go</option>
+					<option value="DDR64Go">DDR64Go</option>
+					<option value="LPX16Go">LPX16Go</option>
+					<option value="LPX32Go">LPX32Go</option>
+					<option value="LPX64Go">LPX64Go</option>
+				</select>
+			<br>
+			<label for="cm">Carte mère</label>
+			<select name="cm" id="cm">
+				<option value="B500">B500</option>
+				<option value="B550">B550</option>
+				<option value="B600">B600</option>
+				<option value="B650">B650</option>
+				<option value="B700">B700</option>
+			</select><br>
+			<button onclick="validate_part2()">Valider</button>
+
+		</div>
+
+		<div id="part3" class="section" hidden>
+			<hr>
+			Les alarmes s'arretent et le calme revient à bord.<br>
+			Sentant l'équipage enfin rassuré !<br>
+			<iframe src="https://giphy.com/embed/1rSQ3HLhM8G6NPzLqG" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><br>
+			vous ne voulez pas les alarmer avec le seul voyant qui n'est pas repassé au vert : Le calcul de bord... <br>
+			Vous décidez d'aller voir pourquoi le programme n'a par redémarré correctement. Il semblerait qu'il manque quelque chose...
+			<div class="terminal">
+				>ls <br>
+				calcul.py    programme_de_calcul.log     README.md<br>
+				> cat programme_de_calcul.log<br>
+					<span style="color=red;">FileNotFoundError: [Errno 2] No such file or directory: images</span><br>
+				<input id="cmd3" placeholder="tapez votre commande ici"><button onclick="validate_part3()">Valider</button>
+			</div>
+
+		</div>
+
+		<div id="part4" class="section" hidden>
+			<hr>
+			<h1>Félicitation !!!!</h1>
+			<h1>Aventure Calipso terminée !!!</h1>
+			<iframe src="https://giphy.com/embed/JPaGsakWupn4eTmELB" width="700" height="700" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
+		</div>
+	</div>
+
+	<script src="entrepot2.js"></script>
+</body>
+</html>
